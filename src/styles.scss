@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/styles/tokens';
+@import './assets/fonts/fonts';
+
+.flex {
+    display: flex;
+
+    &.align-center {
+        align-items: center;
+    }
+
+    &.flex-col {
+        flex-direction: column;
+    }
+
+    &.justify-center {
+        justify-content: center;
+    }
+}
+
+body {
+    font-family: 'Aileron', sans-serif;
+    background-color: var(--gray-100);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.header-1 {
+    font-weight: 700;
+    font-size: 32px;
+}

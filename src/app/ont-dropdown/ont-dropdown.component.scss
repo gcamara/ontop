@@ -1,0 +1,22 @@
+:host {
+    background-color: white;
+    box-shadow: var(--shadow-small);
+    border-radius: 5px;
+    display: flex;
+    padding: 12px;
+    box-sizing: border-box;
+    min-height: 40px;
+
+    select {
+        outline: none;
+        width: 100%;
+        border: none;
+        color: var(--gray-600);
+        font-size: 12px;
+        font-weight: 100;
+    }
+
+    .icon {
+        margin-right: 8px;
+    }
+}

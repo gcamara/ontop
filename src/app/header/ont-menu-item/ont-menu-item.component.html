@@ -1,0 +1,7 @@
+<nav>
+    <a [routerLink]="[menu.path]" routerLinkActive="active">
+        <img src="../../assets/images/{{menu.icon}}.svg" alt="{{menu.title}}" *ngIf="menu.icon" class="icon">
+        {{menu.title}}
+        <object type="image/svg+xml" data="../../assets/images/chevron.svg" class="chevron"></object>
+    </a>
+</nav>

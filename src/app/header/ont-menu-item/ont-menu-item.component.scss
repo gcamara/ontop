@@ -1,0 +1,55 @@
+:host {
+    nav {
+        height: 100%;
+        min-width: 120px;
+        display: flex;
+        align-items: center;
+        
+        .icon {
+            margin-right: 9px;
+        }
+
+        a {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-align: center;
+            font-size: 18px;
+
+            .chevron {
+                width: 10px;
+                height: 6px;
+                margin-left: 8px;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                display: block;
+                width: 0;
+                height: 6px;
+                background-color: var(--pink);
+                transition: width .5s cubic-bezier(0, 0, 0, 1.2);
+            }
+
+            &.active, &:hover {
+                color: var(--pink);
+
+                &:after {
+                    width: 100%;
+                }
+
+                .chevron {
+                    filter: invert(27%) sepia(151%) saturate(3268%) hue-rotate(-24deg) brightness(104%) contrast(97%);
+                }
+            }
+        }
+    }
+}

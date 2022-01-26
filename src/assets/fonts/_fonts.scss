@@ -1,0 +1,19 @@
+$font-files: (
+    100: 'UltraLight',
+    200: 'Thin',
+    300: 'Light',
+    400: 'Regular',
+    500: 'SemiBold',
+    600: 'Bold',
+    700: 'Heavy',
+    800: 'Black'
+);
+
+
+@each $weight, $name in $font-files {
+    @font-face {
+        font-family: 'Aileron';
+        font-weight: $weight;
+        src: url('./Aileron-'+#{$name}+'.otf');
+    }
+}

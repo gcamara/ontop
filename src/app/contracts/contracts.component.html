@@ -1,0 +1,47 @@
+<h1 class="header-1" *ngIf="user$ | async as user">Contracts for {{user.companyName}}</h1>
+
+<div class="search">
+    <ont-search-bar (onSearch)="onSearch($event)"></ont-search-bar>
+    <ont-button icon="../../assets/images/filter.svg" label="Filter" color="gray"></ont-button>
+    <ont-button icon="../../assets/images/add.svg" label="New hire"></ont-button>
+</div>
+<div class="filters">
+    <ont-dropdown 
+        icon="../../assets/images/calendar.svg"
+        placeholder="Create on: Jan/10/21 - Jan/28/21">
+    </ont-dropdown>
+    <ont-dropdown
+        class="contract"
+        placeholder="Contract type">
+    </ont-dropdown>
+    <input type="text" 
+        class="contractor"
+        placeholder="Contractor Name">
+    <ont-dropdown 
+        class="status"
+        placeholder="Status">
+    </ont-dropdown>
+</div>
+<div class="results">
+    <div class="header flex">
+        <div class="contractor-name">Contractor name</div>
+        <div class="type">Type</div>
+        <div class="start-date">Start date</div>
+        <div class="amount">Amount</div>
+        <div class="status">Status</div>
+        <div class="actions">Actions</div>
+    </div>
+    <div class="rows flex flex-col">
+        <div class="row flex" *ngFor="let result of filteredResults$ | async">
+            <div class="contractor-name flex align-center">
+                <img [src]="result.profilePic" class="profile-pic" alt="Profile picture of {{result.name}}" *ngIf="result.profilePic">
+                {{result.name}}
+            </div>
+            <div class="type flex align-center justify-center">{{result.contractType}}</div>
+            <div class="start-date flex align-center justify-center">{{result.startDate}}</div>
+            <div class="amount flex align-center justify-center">{{result.amount | currency}} USD</div>
+            <div class="status {{result.status}} flex align-center">{{result.status}}</div>
+            <div class="actions flex align-center justify-center"></div>
+        </div>
+    </div>
+</div>

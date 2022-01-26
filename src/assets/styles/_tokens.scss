@@ -1,0 +1,28 @@
+$colors: (
+    pink: #FF5A70,
+    green-400: #36CF82,
+    green-200: lighten(#36CF82, .18),
+    gray-600: #898989,
+    gray-500: #989B9B,
+    gray-400: #C4C4C4,
+    gray-300: #DADADA,
+    gray-200: #EBEBEB,
+    gray-100: #F9F9F9,
+    orange-400: #F29D42,
+    orange-200: lighten(#F29D42, .30),
+    black-900: #1C0B11
+);
+
+$shadows: (
+    small:  0px 4px 15px rgba(0, 0, 0, 0.1),
+    big:  0px 4px 20px rgba(0, 0, 0, 0.25)
+);
+
+:root {
+    @each $color-name, $color in $colors {
+        --#{$color-name}: #{$color};
+    }
+    @each $shadow-name, $shadow in $shadows {
+        --shadow-#{$shadow-name}: #{$shadow};
+    }
+}

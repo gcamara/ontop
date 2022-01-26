@@ -1,0 +1,42 @@
+@import '../../assets/styles/tokens';
+
+:host {
+    display: flex;
+    border-radius: 5px;
+    box-shadow: var(--shadow-big);
+    align-items: center;
+    justify-content: center;
+    background-color: var(--pink);
+    padding: 8px 10px;
+    box-sizing: border-box;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .3s ease-out;
+    font-weight: 500;
+    font-size: 18px;
+
+    &:hover {
+        $color: map-get($colors, pink);
+        background-color: darken($color, 7);
+    }
+
+    img {
+        margin-right: 8px;
+    }
+
+    &[type=rounded] {
+        border-radius: 50%;
+    }
+
+    &[color=gray] {
+        background-color: var(--gray-200);
+        color: var(--black-900);
+        box-shadow: none;
+
+        &:hover {
+            $color: map-get($colors, gray-200);
+            background-color: darken($color, 7);
+        }
+    }
+}

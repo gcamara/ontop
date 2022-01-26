@@ -1,0 +1,8 @@
+<img src="../../assets/images/logo.svg" class="logo">
+<div class="navigation">
+    <ont-menu-item 
+        *ngFor="let menu of menus$ | async" 
+        [menu]="menu">
+    </ont-menu-item>
+</div>
+<ont-user-details></ont-user-details>

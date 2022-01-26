@@ -1,0 +1,5 @@
+<div class="pipe"></div>
+<div *ngIf="user$ | async as user" class="user">
+    <img src="{{user.profilePic}}" class="picture" alt="Profile picture of {{user.name}}" *ngIf="user.profilePic">
+    <img src="../../assets/images/chevron.svg" class="chevron">
+</div>
