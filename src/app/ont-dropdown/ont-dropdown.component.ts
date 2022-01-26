@@ -13,6 +13,9 @@ export class OntDropdownComponent implements OnInit {
   @Input()
   placeholder!: string;
 
+  /**
+   * The icon of the dropdown.
+   */
   @Input()
   icon!: string;
 

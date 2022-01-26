@@ -71,6 +71,11 @@ export class ContractsComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
+  /**
+   * When the user hits the action button, it will display the popover.
+   * @param index the index of the item.
+   * @returns 
+   */
   onActionClick(index: number): void {
     if (index === this.selectedIndex) {
       this.selectedIndex = -1;
@@ -79,6 +84,9 @@ export class ContractsComponent implements OnInit {
     this.selectedIndex = index;
   }
 
+  /**
+   * Tells whether the device is mobile or not.
+   */
   get isMobile(): boolean {
     return document.body.clientWidth < 767;
   }

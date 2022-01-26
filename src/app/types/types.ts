@@ -35,6 +35,9 @@ export interface Menu {
     icon?: string;
 }
 
+/**
+ * Represents the Contractor of the table.
+ */
 export interface Contractor {
     name: string;
     profilePic?: string;
