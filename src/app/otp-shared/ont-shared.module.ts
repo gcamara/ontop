@@ -8,6 +8,7 @@ import { OntUserDetailsComponent } from '../ont-user-details/ont-user-details.co
 import { OntSearchBarComponent } from '../ont-search-bar/ont-search-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OntDropdownComponent } from '../ont-dropdown/ont-dropdown.component';
+import { OntPopoverComponent } from '../ont-popover/ont-popover.component';
 
 
 const components = [
@@ -16,6 +17,7 @@ const components = [
   OntMenuItemComponent,
   OntUserDetailsComponent,
   OntDropdownComponent,
+  OntPopoverComponent,
   OntSearchBarComponent
 ];
 

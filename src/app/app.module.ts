@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { OntSharedModule } from './ont-shared/ont-shared.module';
+import { OntSharedModule } from './otp-shared/ont-shared.module';
 import { AppRoutingModule } from './routing/app-routing.module';
 
 @NgModule({

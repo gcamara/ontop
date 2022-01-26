@@ -34,8 +34,10 @@ export class ContractsComponent implements OnInit {
   @ViewChild('filters', { static: true })
   filters!: ElementRef<HTMLDivElement>
 
-  @ViewChild('results', { static: true })
-  resultsEl!: ElementRef<HTMLDivElement>
+  /**
+   * Controls the popover.
+   */
+  selectedIndex = -1;
 
   constructor(private service: ClientService, private cdr: ChangeDetectorRef) { }
 
@@ -47,14 +49,6 @@ export class ContractsComponent implements OnInit {
       stagger: .3,
       ease: Power3.easeOut,
       duration: 1.5
-    });
-
-    gsap.from(this.resultsEl.nativeElement, {
-      delay: .5,
-      duration: 1.5,
-      ease: Power3.easeOut,
-      y: 20,
-      opacity: 0
     });
   }
 
@@ -75,6 +69,14 @@ export class ContractsComponent implements OnInit {
   @HostListener('window:resize')
   onResize(): void {
     this.cdr.detectChanges();
+  }
+
+  onActionClick(index: number): void {
+    if (index === this.selectedIndex) {
+      this.selectedIndex = -1;
+      return;
+    }
+    this.selectedIndex = index;
   }
 
   get isMobile(): boolean {

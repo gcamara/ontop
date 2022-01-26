@@ -39,7 +39,7 @@
         <div class="actions">Actions</div>
     </div>
     <div class="rows flex flex-col">
-        <div class="row flex" *ngFor="let result of filteredResults$ | async">
+        <div class="row flex" *ngFor="let result of filteredResults$ | async; let i = index">
             <div class="contractor-name flex align-center">
                 <img [src]="result.profilePic" class="profile-pic" alt="Profile picture of {{result.name}}" *ngIf="result.profilePic">
                 {{result.name}}
@@ -47,15 +47,20 @@
             <div class="type flex align-center justify-center">{{result.contractType}}</div>
             <div class="start-date flex align-center justify-center">{{result.startDate}}</div>
             <div class="amount flex align-center justify-center">{{result.amount | currency}} USD</div>
-            <div class="status {{result.status}} flex align-center">{{result.status}}</div>
-            <div class="actions flex align-center justify-center"></div>
+            <div class="status {{result.status}} flex align-center">
+                <span>{{result.status.toLowerCase() === 'active' ? 'Active' : 'Signature pending'}}</span>
+            </div>
+            <div class="actions flex align-center justify-center">
+                <img src="../../assets/images/actions-vertical.svg" (click)="onActionClick(i)">
+                <ont-popover [show]="selectedIndex === i"></ont-popover>
+            </div>
         </div>
     </div>
 </div>
 
 <ng-template #mobileResults>
     <div class="cards flex flex-col">
-        <div class="card" *ngFor="let result of filteredResults$ | async">
+        <div class="card" *ngFor="let result of filteredResults$ | async; let i = index">
             <div class="card-detail">
                 <label>Contractor name</label>
                 <div class="detail">{{result.name}}</div>
@@ -74,12 +79,21 @@
             </div>
             <div class="card-detail">
                 <label>Status</label>
-                <div class="detail {{result.status}}">{{result.status}}</div>
+                <div class="detail status {{result.status}}">
+                    <span>{{result.status.toLowerCase() === 'active' ? 'Active' : 'Signature pending'}}</span>
+                </div>
             </div>
             <div class="card-detail">
                 <label>Actions</label>
-                <div class="detail"></div>
+                <div class="detail actions">
+                    <img src="../../assets/images/actions-horizontal.svg" (click)="onActionClick(i)">
+                    <ont-popover [show]="selectedIndex === i"></ont-popover>
+                </div>
             </div>
         </div>
     </div>
 </ng-template>
+
+<div class="floating-button">
+    <ont-button icon="../../assets/images/chat.svg" type="rounded"></ont-button>
+</div>

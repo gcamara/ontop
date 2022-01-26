@@ -7,22 +7,35 @@
     padding: 0 80px;
     box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.08);
     margin-bottom: 60px;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     .navigation {
         display: flex;
         height: 100%;
         width: 100%;
-        max-width: 1080px;
+        max-width: 1440px;
         justify-content: space-between;
         transition: left 1s cubic-bezier(0, 1, 0, 1.05);
     }
 
+    ont-user-details {
+        order: 6;
+    }
+    
     .menu {
         display: none;
     }
 
+    .img-container {
+        width: 150px;
+        margin-right: 40px;
+    }
+    
     @media (max-width: 1023px) {
+        ont-user-details {
+            order: 0;
+        }
+        
         height: 61px;
         position: fixed;
         width: 100%;
@@ -35,6 +48,7 @@
         }
 
         .img-container {
+            margin: 0;
             width: 100%;
             position: absolute;
             background-color: white;
