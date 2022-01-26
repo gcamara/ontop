@@ -5,7 +5,7 @@
     <ont-button icon="../../assets/images/filter.svg" label="Filter" color="gray"></ont-button>
     <ont-button icon="../../assets/images/add.svg" label="New hire"></ont-button>
 </div>
-<div class="filters">
+<div class="filters" #filters>
     <ont-dropdown 
         icon="../../assets/images/calendar.svg"
         placeholder="Create on: Jan/10/21 - Jan/28/21">
@@ -22,7 +22,7 @@
         placeholder="Status">
     </ont-dropdown>
 </div>
-<div class="results">
+<div class="results" #results>
     <div class="header flex">
         <div class="contractor-name">Contractor name</div>
         <div class="type">Type</div>

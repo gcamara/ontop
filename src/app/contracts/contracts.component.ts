@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ClientService } from '../services/client.service';
 import { Contractor } from '../types/types';
+import gsap from 'gsap';
+import { Power3 } from 'gsap/all';
 
 @Component({
   selector: 'ont-contracts',
@@ -29,9 +31,31 @@ export class ContractsComponent implements OnInit {
    */
   filteredResults$ = new BehaviorSubject<Contractor[]>([]);
 
+  @ViewChild('filters', { static: true })
+  filters!: ElementRef<HTMLDivElement>
+
+  @ViewChild('results', { static: true })
+  resultsEl!: ElementRef<HTMLDivElement>
+
   constructor(private service: ClientService) { }
 
   ngOnInit(): void {
+    const tl = gsap.timeline();
+    tl.from(this.filters.nativeElement.children, {
+      opacity: 0,
+      y: 20,
+      stagger: .3,
+      ease: Power3.easeOut,
+      duration: 1.5
+    });
+
+    gsap.from(this.resultsEl.nativeElement, {
+      delay: .5,
+      duration: 1.5,
+      ease: Power3.easeOut,
+      y: 20,
+      opacity: 0
+    });
   }
 
   /**
