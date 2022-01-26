@@ -2,8 +2,10 @@
 
 <div class="search">
     <ont-search-bar (onSearch)="onSearch($event)"></ont-search-bar>
-    <ont-button icon="../../assets/images/filter.svg" label="Filter" color="gray"></ont-button>
-    <ont-button icon="../../assets/images/add.svg" label="New hire"></ont-button>
+    <div class="buttons flex">
+        <ont-button icon="../../assets/images/filter.svg" label="Filter" color="gray"></ont-button>
+        <ont-button icon="../../assets/images/add.svg" label="New hire"></ont-button>
+    </div>
 </div>
 <div class="filters" #filters>
     <ont-dropdown 
@@ -21,8 +23,13 @@
         class="status"
         placeholder="Status">
     </ont-dropdown>
+
+    <div class="clear-filters">
+        <img src="../../assets/images/clear.svg" alt="">
+        Clear filters
+    </div>
 </div>
-<div class="results" #results>
+<div class="results" #results *ngIf="!isMobile; else mobileResults">
     <div class="header flex">
         <div class="contractor-name">Contractor name</div>
         <div class="type">Type</div>
@@ -45,3 +52,34 @@
         </div>
     </div>
 </div>
+
+<ng-template #mobileResults>
+    <div class="cards flex flex-col">
+        <div class="card" *ngFor="let result of filteredResults$ | async">
+            <div class="card-detail">
+                <label>Contractor name</label>
+                <div class="detail">{{result.name}}</div>
+            </div>
+            <div class="card-detail">
+                <label>Type</label>
+                <div class="detail">{{result.contractType}}</div>
+            </div>
+            <div class="card-detail">
+                <label>Start date</label>
+                <div class="detail">{{result.startDate}}</div>
+            </div>
+            <div class="card-detail">
+                <label>Amount</label>
+                <div class="detail">{{result.amount | currency}} USD</div>
+            </div>
+            <div class="card-detail">
+                <label>Status</label>
+                <div class="detail {{result.status}}">{{result.status}}</div>
+            </div>
+            <div class="card-detail">
+                <label>Actions</label>
+                <div class="detail"></div>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -23,4 +23,11 @@
         background-color: var(--gray-400);
         margin-right: 40px;
     }
+
+    @media (max-width: 1023px) {
+        margin-bottom: 40px;
+        .pipe {
+            display: none;
+        }
+    }
 }

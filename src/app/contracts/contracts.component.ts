@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ClientService } from '../services/client.service';
 import { Contractor } from '../types/types';
@@ -37,7 +37,7 @@ export class ContractsComponent implements OnInit {
   @ViewChild('results', { static: true })
   resultsEl!: ElementRef<HTMLDivElement>
 
-  constructor(private service: ClientService) { }
+  constructor(private service: ClientService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     const tl = gsap.timeline();
@@ -70,6 +70,15 @@ export class ContractsComponent implements OnInit {
     } else {
       this.filteredResults$.next(this.results);
     }
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    this.cdr.detectChanges();
+  }
+
+  get isMobile(): boolean {
+    return document.body.clientWidth < 767;
   }
 
 }

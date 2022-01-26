@@ -13,6 +13,11 @@ export class HeaderComponent implements OnInit {
    */
   menus$ = this.service.getAvailableMenus();
 
+  /**
+   * Controls the display of the menu.
+   */
+  showNavigation = false;
+
   constructor(private service: MenuService) { }
 
   ngOnInit(): void {

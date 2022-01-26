@@ -1,8 +1,13 @@
-<img src="../../assets/images/logo.svg" class="logo">
-<div class="navigation">
+<div class="img-container">
+    <img src="../../assets/images/logo.svg" class="logo">
+    <div class="menu" (click)="showNavigation = !showNavigation">
+        <img src="../../assets/images/hamburger.svg">
+    </div>
+</div>
+<div class="navigation" [ngClass]="{ show: showNavigation }">
+    <ont-user-details></ont-user-details>
     <ont-menu-item 
         *ngFor="let menu of menus$ | async" 
         [menu]="menu">
     </ont-menu-item>
 </div>
-<ont-user-details></ont-user-details>
